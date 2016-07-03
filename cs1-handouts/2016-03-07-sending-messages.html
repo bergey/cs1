@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+   body { max-width: 40em; margin: 0 auto;}
+   h2 { color: #4070a0;}div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<h1 id="messages-between-computers">Messages Between Computers</h1>
+<p>You may want to send messages between two copies of your program running on different machines. In particular, most of the students writing <em>Battleship</em> implementations will want this. The main difficulty is that one copy of your code doesn't know what computer your opponent is using, and we want this to work for any two computers.</p>
+<p>I've set up a server at <code>https://fcscs1.herokuapp.com</code> that everyone in the class can use. Each copy of your program can talk to the server, and this way they can talk to eachother. This simple system won't work if two pairs of players try to play two games of <em>Battleship</em> at once, but I think it will be enough for our purposes.</p>
+<p>To pass messages this way there are 4 steps: - Load the <code>faye</code> Javascript library - Connect to the server, using your username - Listen for new messages - Send a message</p>
+<p>Load the Library</p>
+<p>To load the library, add this <code>script</code> tag to your HTML: <code>&amp;lt;script src=&quot;https://fcscs1.herokuapp.com/messages/client.js&quot;&amp;gt;&amp;lt&lt;/script&amp;gt;</code></p>
+<h2 id="connect-to-the-server">Connect to the server</h2>
+<p>Add these lines early in your Javascript code. The <code>client</code> knows how to talk to the message server. We'll use the <code>channel</code> variable to make sure that one student's game doesn't recieve messages from another.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> client <span class="op">=</span> <span class="kw">new</span> <span class="va">Faye</span>.<span class="at">Client</span>(<span class="st">&#39;https://fcscs1.herokuapp.com/messages&#39;</span>)<span class="op">;</span>
+
+<span class="kw">var</span> channel <span class="op">=</span> <span class="st">&quot;/dbergey&quot;</span> <span class="co">// PUT YOUR USERNAME HERE</span>
+<span class="co">// KEEP THE SLASH</span></code></pre></div>
+<h2 id="listen-for-new-messages">Listen for new messages</h2>
+<p>The code below refers to the variables you set in the previous section. The function describes what to do when you get a new message, much like the functions for handling button clicks. This simple example just prints the message on the Console.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">client</span>.<span class="at">subscribe</span>(channel<span class="op">,</span> <span class="kw">function</span>(msg) <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;received&#39;</span><span class="op">,</span> msg)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h2 id="send-a-message">Send a message</h2>
+<p>Finally, you are ready to send a message. Make sure your messages go to the same channel that you listen to, above. A message can be almost anything that you can use as a variable value: - a number - a string - a list - a dictionary</p>
+<p><code>client.publish(channel, 42);</code></p>
+<h1 id="client-identification">Client Identification</h1>
+<p>Now that you have two copies of the same code communicating, you may need a way to distinguish the two copies. For example, the <code>subscribe</code> function above will get messages sent by the local code, as well as by the other player.</p>
+<p>An easy way is to generate a random number when the page loads, and include that number in every request. For example:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> browserID <span class="op">=</span> <span class="va">Math</span>.<span class="at">random</span>()<span class="op">;</span>
+
+<span class="va">client</span>.<span class="at">subscribe</span>(channel<span class="op">,</span> <span class="kw">function</span>(msg) <span class="op">{</span>
+    <span class="cf">if</span> (<span class="va">msg</span>.<span class="at">id</span> <span class="op">==</span> browserID) <span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;received &#39;</span><span class="op">,</span> <span class="va">msg</span>.<span class="at">text</span><span class="op">,</span> <span class="st">&#39; from myself.&#39;</span>)<span class="op">;</span>
+    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;received &#39;</span><span class="op">,</span> <span class="va">msg</span>.<span class="at">text</span><span class="op">,</span> <span class="st">&#39; from someone else.&#39;</span>)<span class="op">;</span>
+    <span class="op">}</span>
+
+    <span class="at">$</span>(<span class="st">&#39;button&#39;</span>).<span class="at">click</span>(<span class="kw">function</span> () <span class="op">{</span>
+        <span class="va">client</span>.<span class="at">publish</span>( <span class="op">{</span> <span class="dt">id</span><span class="op">:</span> browserID<span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="dv">42</span> <span class="op">}</span> )<span class="op">;</span>
+    <span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h1 id="persistant-browser-storage">Persistant Browser Storage</h1>
+<p>Ordinary Javascript variables only last until the page is closed. It is also possible to store JS values in the browser so that they are kept between page loads, and even when the browser is quit. Keep in mind that if you switch to a different computer, it won't have the same stored values.</p>
+<p>The program below shows how to use this <code>localStorage</code> feature. It starts with an initial set of songs, to use if this is the first time we've run this program in this browser on this computer. If there's a stored song list, it loads that list instead. When the user adds a song, the program adds the new song to the list, and saves it.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> songs <span class="op">=</span>
+    [ <span class="st">&quot;Light My Fire&quot;</span>
+    <span class="op">,</span> <span class="st">&quot;Let it Rain&quot;</span>
+    <span class="op">,</span> <span class="st">&quot;Cure For Pain&quot;</span>
+    <span class="op">,</span> <span class="st">&quot;Who&#39;s So Scared&quot;</span>
+    ]
+
+<span class="co">// put the songs in an HTML ul</span>
+<span class="kw">var</span> render <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span>
+    <span class="at">$</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">empty</span>()<span class="op">;</span>
+    <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+    <span class="cf">while</span> ( i <span class="op">&lt;</span> <span class="va">songs</span>.<span class="at">length</span> ) <span class="op">{</span>
+        <span class="at">$</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">append</span>(<span class="st">&#39;&lt;li&gt;&#39;</span> <span class="op">+</span> songs[i] <span class="op">+</span> <span class="st">&#39;&lt;/li&gt;&#39;</span>)<span class="op">;</span>
+        i<span class="op">++;</span>
+    <span class="op">}</span>
+<span class="op">};</span>
+
+<span class="at">$</span>(document).<span class="at">ready</span>( <span class="kw">function</span> () <span class="op">{</span>
+    <span class="co">// get or set localStorage</span>
+    <span class="kw">var</span> raw <span class="op">=</span> <span class="va">localStorage</span>.<span class="at">getItem</span>(<span class="st">&#39;songs&#39;</span>)<span class="op">;</span>
+    <span class="cf">if</span> (raw <span class="op">==</span> <span class="kw">null</span> ) <span class="op">{</span>
+        <span class="co">// first time running on this computer</span>
+        <span class="va">localStorage</span>.<span class="at">setItem</span>(<span class="st">&#39;songs&#39;</span><span class="op">,</span> <span class="va">JSON</span>.<span class="at">stringify</span>(songs))<span class="op">;</span>
+    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+        <span class="co">// use stored song list instead of initial list</span>
+        songs <span class="op">=</span> <span class="va">JSON</span>.<span class="at">parse</span>(raw)<span class="op">;</span>
+    <span class="op">}</span>
+
+    <span class="at">$</span>(<span class="st">&#39;button&#39;</span>).<span class="at">click</span>( <span class="kw">function</span> () <span class="op">{</span>
+        <span class="va">songs</span>.<span class="at">push</span>(<span class="at">$</span>(<span class="st">&#39;input&#39;</span>).<span class="at">val</span> ())<span class="op">;</span>
+        <span class="at">$</span>(<span class="st">&#39;input&#39;</span>).<span class="at">val</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span>
+        <span class="at">render</span>()<span class="op">;</span>
+        <span class="va">localStorage</span>.<span class="at">setItem</span>(<span class="st">&#39;songs&#39;</span><span class="op">,</span> <span class="va">JSON</span>.<span class="at">stringify</span>(songs))<span class="op">;</span>
+    <span class="op">}</span>)<span class="op">;</span>
+
+    <span class="at">render</span>()<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p><code>localStorage</code> can only store Strings. <code>JSON</code> is a way of writing down a JS value as a String. <code>JSON.stringify</code> turns a value (number, string, list, dictionary) into a JSON string. <code>JSON.parse</code> does the reverse, turning a JSON string into the appropriate type of value.</p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.right {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+p {
+    max-width: 40em;
+}

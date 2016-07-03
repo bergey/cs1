@@ -1,0 +1,46 @@
+#+HTML_HEAD_EXTRA: <style>body { max-width: 40em; }</style>
+#+OPTIONS: toc:nil num:nil html-postamble:nil
+* Start with a Question
+For our final project of the year, you can pick (almost) any data you are interested in to graph.  Your graph should answer some interesting question.  For this assignment, an *interesting* question is one that could help someone to make a decision, preferably a politically, economically, or culturally important decision.
+
+- You can start with a question and look for data to help answer it, or look at available data, and frame a question that can be answered from these data.  Either order is fine.  For example:
+- If the city of Philadelphia wants to save energy, they might be interested in seeing which buildings use the most energy, or the [[http://bergey.github.io/sluice-graph/][most energy per square foot]].u
+- If you want to know how [[http://thenotebook.org/uploads/files/733868014641451895-pa-school-funding-racial-bias.pdf][students' race affects school funding]], you need to look at four variables - school funding, number of students, race, and income in the district.  
+- If you want to know how fast computers will be in 2030, you might look at how fast they've been each year for the last 20 or 30.  
+- On the other hand, "How many people in each state have a first name starting with the letter Q?" probably isn't an interesting question.  If you want to ask a question like that, you'll need to work much harder to convince me it's interesting.
+* Data Sources
+- https://www.opendataphilly.org/
+- https://www.data.gov/
+- Ask me if you have a different source of data in mind.
+* Graph Types
+Pick a graph that's appropriate to your question and your data.  Refer back to the graph examples in the [[http://cs1.friendscentral.org/handouts/2016-05-02-graphs.html][previous handout]].  I expect most of you will make a line chart, bar chart, or scatter plot, but you might find one of the other graphs most appropriate.  (We don't have time for maps this year.)  
+
+Consider:
+- How many variables do you need to show?
+- Which variables are numbers?
+- Which variables are discrete / categorical?  How many categories are there?
+- If you only have a few categories, color works well to tell them apart.  You can have differently colored circles or lines.
+* Graph Requirements
+Every graph should have the following:
+- data markers (bars, circles, lines,whatever)
+- axis tick marks with labels (eg, numbers, or the name of each bar)
+- axis labels, including units, if any. Examples:
+  + "Energy Produced [kWh/yr]"
+  + "Average Age [years]")
+- a title (this can be in the surrounding HTML)
+
+If you have time, there are many ways to enhance a Javascript graph.  Here are some ideas:
+- Pick tick mark locations that make it easier to compare multiple similar graphs.
+- Add a second line or set of dots in a second color
+- If you have multiple colors, add a legend
+- Mouseover - show more details about the selected circle / bar in an HTML table or list.
+- Pulldown menu - let the viewer select from multiple years or categories of data
+* Deliverables
+In addition to your graph, your HTML page should have text answering the following questions:
+
+- What question were you trying to answer?
+- Why is this question important / interesting?  To whom?  What will they do differently, depending on the answer?
+- URL from which you got the data. (Make it a link.)
+- Describe any changes you made to the files that you downloading.  For example, renaming the columns, deleting rows, deleting columns, deleting commas in numbers, converting to .csv / .tsv.
+- Does the graph answer the original question?  If so, what is the answer?  If not, what graph would you try next, or what additional data would you need?
+- What new question or questions does your graph raise?

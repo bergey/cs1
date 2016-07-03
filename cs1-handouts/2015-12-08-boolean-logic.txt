@@ -1,0 +1,33 @@
+As you combine true / false values with && and || and !, you may
+notice that there is more than one way to get the same result.
+Sometimes one of these may be easier to read than another - not always
+the one you write down first.
+
+For example, these are equal for any values a and b.
+
+!(a && b) === (!a) || (!b)
+
+!(a || b) === (!a) && (!b)
+
+Practice by rearranging each of these logical expressions into
+something simpler: (Not graded, just do as much as you can.)
+
+1. !a || true
+
+ 2. (a || b) && ( c || !d )
+
+3. ( ( a && b) || c ) && !d
+
+4. !(c && ( !a && b )
+
+5. (a && b) || ( a && b && c ) || (a && b && c && d)
+
+6. (a || b) && ( a || b || c ) && (a || b || c || d)
+
+7. ( !a && !b ) || !c || !d || !e
+
+8. ( (a || b ||c) && !(d || e) ) || ( ( a || b || c) && (d || e) )
+
+9. ( x && z ) || (z && ( !x || (x && y) ) )
+
+10. ( !(a || b) && !(c || d || e) ) || !( a || b)

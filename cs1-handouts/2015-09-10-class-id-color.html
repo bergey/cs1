@@ -1,0 +1,52 @@
+<h1>Relating HTML to CSS</h1>
+
+<h2>CSS Selectors</h2>
+
+<dl>
+<dt>element name</dt>
+<dd>Any element name can be a CSS selector.  This applies to all emphasized text: <code>em { color: red; }</code></dd>
+
+<dt>class</dt>
+<dd>Any HTML element can have a class, and any number of elements can have the
+same class.  In HTML, we add a class called "important" by writing <code>&lt;em
+class="important"&gt;</code>  We can refer to that in CSS by writing <code>.important {/*properties here*/}</code></dd>
+
+<dt>id</dt>
+<dd>Any HTML element can have an ID attribute.  It's similar to a class, but
+only one element in a document can have a given ID.  If you're not sure which to
+use, use a class.   When we use Javascript, we'll see reasons to prefer an ID.
+We refer to an ID in CSS with the # character, like <code>#myIdentity
+{/*properties here*/} </dd>
+
+</dl>
+
+<h2>HTML Links</h2>
+
+The <strong>a</strong> element, short for <em>anchor</em>, is used to make a
+link.  The URL that is the destination of the link is given as the
+<strong>href</strong> attribute.  The link text goes inside the
+<strong>a</strong> element.  You can also have links that are images or divs,
+instead of text.  An example: <code>&lt;a
+href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"&gt;Click
+Me!&lt;/a&gt;</code>
+
+
+<h2>Color</h2>
+
+<p>Often we want to specify a color in our CSS.  CSS defines a bunch of common
+color names.  When you want a less common color,  you can specify it as the red,
+green, and blue parts, in that order.  For example, <code>rgb(80%,0%,80%)</code>
+is a shade of purple.  There are a few other ways, also, which you may see
+reading others' code.  Without the % signs, each color component is a number
+between 0 and 255 - dividing that number by 255 is the same as the percentage
+value.  Or you may see <code>#CC00CC</code>, in which case each 2 numbers is one
+color component, between 0 and 255, in base 16. As usual, you can <a
+href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">read more on
+MDN.</a></p>
+
+<p>Computer screens produce color by mixing different proportions of red, green,
+and blue light.  They can't reproduce every color that occurs in the world (or
+in print), but this works pretty well, because the human eye also has 3 kinds of
+cell to detect color.  Computer monitors vary quite a bit in what color they
+produce for a given set of numbers - so pick a color you like, but try not to
+agonize too much over small differences.</p>

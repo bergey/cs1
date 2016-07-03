@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML Element Semantics</title>
+
+		<style>
+      h1 { size: 2em; text-align: center;   }
+      table { border: 1px solid grey; margin: 0 auto; border-collapse: collapse; }
+      td { text-align: center; }
+      th { border-bottom: 2px solid grey; border-right: 1px solid grey; }
+      tr { border: 1px solid grey;}
+      tr:last-child td { border-bottom: none;}
+      td:nth-child(2) { text-align: left; }
+      td:first-child { font-weight: bold; }
+    </style>
+	</head>
+
+	<body>
+    <h1>HTML Element Semantics</h1>
+    <table>
+      <thead><tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>required attributes</th>
+        <th>self-closing?</th>
+        <th>block or inline</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>p</td>
+          <td>paragraph</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>h1</td>
+          <td>most important header</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>h2</td>
+          <td>nested header</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>img</td>
+          <td>image</td>
+          <td>src</td>
+          <td>Y</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>hyperlink</td>
+          <td>href</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>ol</td>
+          <td>ordered (numbered) list</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>ul</td>
+          <td>unordered (bullet) list</td>
+          <td>- </td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>li</td>
+          <td>list item</td>
+          <td>- </td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>em</td>
+          <td>emphasis</td>
+          <td>-</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>strong</td>
+          <td>another kind of emphasis</td>
+          <td>-</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>span</td>
+          <td>style some text</td>
+          <td>-</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>div</td>
+          <td>style a section of HTML</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>blockquote</td>
+          <td>a longer quotation</td>
+          <td>-</td>
+          <td>N</td>
+          <td>block</td>
+        </tr>
+        <tr>
+          <td>cite</td>
+          <td>a shorter quotation</td>
+          <td>-</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>input</td>
+          <td>various - text entry, checkbox</td>
+          <td>type</td>
+          <td>Y</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>button</td>
+          <td>a  clickable button</td>
+          <td>-</td>
+          <td>N</td>
+          <td>inline</td>
+        </tr>
+        <tr>
+          <td>br</td>
+          <td>line break</td>
+          <td>-</td>
+          <td>Y</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>html</td>
+          <td>contains all HTML in file</td>
+          <td>-</td>
+          <td>N</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>head</td>
+          <td>contains HTML metadata, eg. link, title</td>
+          <td>-</td>
+          <td>N</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>link</td>
+          <td>refers to CSS file</td>
+          <td>rel, href</td>
+          <td>Y</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>title of window / tab</td>
+          <td>-</td>
+          <td>N</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>body</td>
+          <td>contains all HTML for normal display</td>
+          <td>-</td>
+          <td>N</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

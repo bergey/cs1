@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Modeling Physics</title>
+        <style>body {max-width: 40em; }</style>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Modeling Physics</h1>
+        <p>Our bouncing ball programs have a simple kind of physics.
+            Our ball has velocity, and the velocity changes when the
+            ball hits a wall.  This is a pretty good model of how
+            balls roll on a billiards table.  In many other
+            situations, we want to include other forces, such as
+            gravity.</p>
+
+        <p>For the rest of April, we will simulate physical systems
+            with forces and collisions.  The suggestions below increase
+            gradually in mathematical complexity.  Work on them in order.
+            If you have a different system you want to model, that's
+            great! Talk to me about it before you start.</p>
+
+        <h2>Bouncing With Gravity</h2>
+        <p>Instead of the billiards table, imagine that our Y axis is
+            up and down.  Now gravity should pull the ball down.  Add a
+            small amount to the Y velocity for each animation frame. </p
+
+        <p>>What path does the ball follow?  Is this realistic?  Does
+            the ball ever stop bouncing?  Why?</p>
+
+        <h2>Pendulum</h2>
+        <p>A pendulum on a string has two forces acting on it -
+            gravity, and the string.  Gravity still points down, but the
+            angle the string makes with the X &amp; Y axes keeps changing.
+            Assume one end of the string is attached to the ball, and the
+            other is fixed - it cannot move.  Assume the string can't
+            stretch - it's always the same length.  A string cannot push,
+            only pull.  So the string always pulls the ball towards the
+            fixed end of the string.</p>
+
+        <p>There's a trick to modeling the pendulum.  The ball always
+        travels in a circle around the fixed end of the string.  It
+        will be easier if you keep track of the angle of the ball
+        around this circle, and the <em>angular velocity</em> in
+        radians/second, instead of the X &amp; Y positions and
+        velocities.</p>
+
+        <p>How do different starting conditions change the behavior of the pendulum?
+            <ul>
+                <li>length of string</li>
+                <li>force of gravity</li>
+                <li>starting velocity of ball</li>
+                <li>starting position (angle, height) of ball</li>
+            </ul>
+        </p>
+
+        <h2>Planetary Orbits</h2>
+        <p>The gravitational pull between the sun and the earth is a lot like the string in the pendulum model.  Similarities:
+            <ul>
+                <li>can only pull, never push</li>
+                <li>force is always directed along the line between the two bodies</li>
+            </ul>
+        </p>
+
+        <p>Of course, there are also some important differences:
+            <ul>
+                <li>the sun moves too.</li>
+                <li>the earth goes all the way around the sun</li>
+                <li>all the other planets also pull on eachother</li>
+                <li>the orbits aren't circles, but ellipses</li>
+            </ul>
+        </p>
+
+        <p>Make a model of planets orbiting the sun.  Start with just one planet, then add at least one more.  Unlike the pendulum, this will probably be easier if you keep track of X, Y, and X and Y velocities or each body.</p>
+
+    </body>
+</html>

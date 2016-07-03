@@ -1,0 +1,30 @@
+/* body {
+    background: black;
+   } */
+
+td {
+    border-style: ridge;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+    border-width: 2px;
+    border-color: #229922;  /* change the border color using the hexadecimal color codes for HTML */
+    background: #bbbbbb;    /* change the background color using the hexadecimal color codes for HTML */
+    padding: 2px 0px;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;    /* options are normal, bold, bolder, lighter */
+    font-style: normal;   /* options are normal or italic */
+    color: black; /* change color using the hexadecimal color codes for HTML */
+}
+
+.x {
+    background-color: #ff9999;
+}
+
+.o {
+    background-color: #9999ee;
+}
+
+td#display {
+    text-align: right;
+}

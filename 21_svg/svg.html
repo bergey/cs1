@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+    <head>
+        <title>2D Graphics with SVG</title>
+        <style>
+         svg { border: 1px solid; }
+         body { max-width: 40em; }
+         h1 { color: green; }
+         .instruction { color: fuchsia; }
+        </style>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <p>We can describe images with HTML also.  When we've learned
+            this image language, we'll also be able to write
+            Javascript to make more elaborate images.  The image
+            language is called SVG (short for Scalable Vector
+            Graphics) and every image is inside an <code>SVG</code>
+            tag.</p>
+
+        <p>If you want to make something I haven't taught, <a
+                                                               href="https://developer.mozilla.org/en-US/docs/Web/SVG">Mozilla
+            has all the details</a>.</p>
+
+        <h1>Circles</h1>
+        <p>We'll start with a single circle.  A circle is described by
+            its radius and the position of its center.  If you leave
+            off any of these 3 required attributes, most browsers
+            won't draw the circle at all.  All dimensions &
+            coördinates are in pixels.  The center position is
+            described by the X (horizontal) position and the Y
+            (vertical) position.  (0,0) is the upper left, and
+            coördinates increase to the right and
+            <strong>down</strong>.  I often write coördinates as
+            (x,y), but SVG doesn't use that notation.</p>
+        <svg>
+            <circle r="50" cx="60" cy="50"></circle>
+        </svg>
+        <p class="instruction">Make a new SVG with one smaller circle</p>
+        <p class="instruction">Make a new SVG with a circle that is near the right hand side of the image.</p>
+        <p class="instruction">Make an SVG with two circles. Make sure neither one is entirely inside the other.</p>
+
+        <h1>Color</h1>
+        <p>Our drawings are much more interesting if we add color.   We can specify two kinds of color, the <code>fill</code> color and the outline color.  For now, we'll just use the <code>fill</code>.  Like CSS colors, we can use color names, RGB values, or hexadecimal (0-F) values that also represent RGB.  Here's a circle that isn't black.<p>
+            <svg>
+                <circle r="30" cx="120" cy="50" fill="blue">
+            </svg>
+            <p class="instruction">Draw two circles with different colors</p>
+            <p class="instruction">Draw a bullseye, with three circles of different radiī, different colors, and the same center point.</p>
+            <p class="instruction">Draw a traffic light, with three circles of different colors, one above the other.</p>
+
+            <h1>Rectangles</h1>
+            <p>Circles are not the only shape we can make.  SVG describes rectangles with the <code>rect</code> tag.  A <code>rect</code> has a coördinate for the upper left corner, a width, and a height.  For now, we will only draw rectangles with vertical and horizontal sides.</p>
+            <svg>
+                <rect x="40" y="20" width="80" height="80" />
+            </svg>
+            <p class="instruction">Draw a rectangle taller than it is wide.</p>
+            <p class="instruction">Draw a rectangle wider than it is tall.</p>
+            <p class="instruction">Copy your traffic light from above, and draw a rectangle around it.  What happens if <code>rect</code> comes before the circles?  What happens if <code>rect</code> comes after the circles?</p>
+            <p class="instruction">Draw a square, and 4 circles. Place the circles the center of each circle is at a different corner of the square.</p>
+
+            <h1>Stroke / Outline</h1>
+            <p>We can set the outline of a shape using the attribute <code>stroke</code>.  Here are a few ways of using <code>stroke</code>.</p>
+            <svg width="300" height="200">
+                <circle cx="50" cy="100" r="40" stroke="green" />
+                <circle cx="150" cy="100" r="40" fill="none" stroke="blue" />
+                <circle cx="250" cy="100" r="40" fill="none" stroke="red" stroke-width="3" />
+            </svg>
+            <p class="instruction">Redraw your bullseye with thick black lines between the circles.</p>
+            <p class="instruction">Draw a tic-tac-toe board.  Use
+            <code>fill=none</code>.  How many rectangles do you
+            need?</p>
+            <p>All of your geometry will be useful
+                for computer graphics.  You can use the Javascript console
+                in your browser to work out the math.  Helpful functions
+                include <code>Math.sqrt()</code>, <code>Math.sin()</code>,
+                and <code>Math.cos()</code>.  Remember that sin & cos take
+                their inputs in radians — 360° = 2π radians.</p>
+            <p class="instruction">Draw a Venn diagram with three
+                overlapping circles.   Your SVG should look something like this:</p>
+            <img src="venn.png">
+
+            <h1>Lines</h1>
+            <p>We can draw a line between two points using the
+            <code>line</code> element.  The line is defined by the
+            (x,y) coördinates of its two endpoints.  We use
+            <code>stroke</code> and <code>stroke-width</code> to
+            describe how to draw the line</p>
+            <svg>
+                <line x1="0" y1="0" x2="100" y2="100" stroke="black" />
+            </svg>
+            <p class="instruction">Draw a square using four lines.</p>
+            <p class="instruction">Draw your tic-tac-toe board using
+            lines.  You can use a <code>rect</code> for the outer
+                boarder, but use <code>line</code> to divide it up.</p>
+            <p class="instruction">Draw a circle with a triangle inside, any way you like.</p>
+            <p class="instruction">Draw a circle with a <em>right</em>
+            triangle inside.  Put one vertex of the triangle at the
+            center of the circle, and one on the edge of the circle.
+                Use the math functions described above.</p>
+
+            <h2>Polyline</h2>
+            <p>We can also make "lines" that connect several points
+            with a line between each point.  This saves repeating each
+            point twice, when drawing shapes like our triangle
+                above. We give all the points as a single attribute <code>points</code>.</p>
+            <svg>
+                <polyline fill="none"  stroke="teal" stroke-width="2"
+                          points="20,20 20,40 40,40 40,60 60,60 60,80 80,80 80,100 100,100 100,20 20,20" />
+            </svg>
+            <p class="instruction">Draw a polyline with 5 points, each down and to the right from the one before.</p>
+            <p class="instruction">Draw a polyline with 5 points, each up and to the right from the one before.</p>
+            <p class="instruction">Draw a five-pointed star.</p>
+            <p class="instruction">Draw a regular hexagon.</p>
+
+            <h2>Text</h2>
+            <p>We can write text at any point in our SVG.  The text
+            goes <em>inside</em> the <code>text</code> element, just
+                as it would in a <code>p</code> tag.</p>
+            <svg>
+                <circle cx="100" cy="100" r="50" fill="red"/>
+                <text x="80" y="100">STOP!</text>
+            </svg>
+
+            <p class="instruction">Draw something with at least one
+                text tag and at least one other shape.</p>
+
+            <h2>Transformations and Groups</h2>
+            <p>Often the easiest way to describe a shape is in terms
+            of some other shape and a transformation.  For instance,
+            if we have several copies of the same shape, instead of
+            calculating coördinates for every copy, we can copy and
+            paste the same SVG tags, and wrap each copy in a
+            transformation describing how much to translate (move) the
+            copy.  We'll write our <code>transform</code> attributes
+            on <code>g</code> tags.  <code>g</code> is for
+            <em>group</em>.  <code>g</code> is a bit like
+            <code>div</code> — it doesn't draw anything by itself, but
+            it helps us group other elements to put them where we
+            want.</p>
+            <svg>
+                <g transform="translate(30,30)">
+                    <polyline fill="blue" points="0,30 26,-15 -26,-15 0,30" />
+                </g>
+                <g transform="translate(90,30)">
+                    <polyline fill="blue" points="0,30 26,-15 -26,-15 0,30" />
+                </g>
+                <g transform="translate(150,30)">
+                    <polyline fill="blue" points="0,30 26,-15 -26,-15 0,30" />
+                </g>
+                <g transform="translate(90,90)">
+                    <polyline fill="blue" points="0,30 26,-15 -26,-15 0,30" />
+                </g>
+            </svg>
+            <p class="instruction">Make 5 copies of your 5-pointed
+            star from above, translated so they don't overlap.  You
+                may need to make the SVG bigger.</p>
+            <p class="instruction">Draw 3 copies of your hexagon in
+                different colors, so they touch but do not overlap.</p>
+            <p>Translation is not the only sort of Transformation.  We
+            can also also rotate and scale our drawings.</p>
+            <p class="instruction">Use <code>scale()</code> to make 4 copies of your hexagon at different sizes.</p>
+            <p class="instruction">Use <code>rotate</code> to turn
+            your tic-tac-toe board at some angle.  The argument to
+            <code>rotate</code> is in degrees.  Don't pick 90° or any
+            multiple of 90°.</p>
+            <p>You can specify more than one transformation on the same element.  See <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Rotating_and_Translating_an_SVG_element">this example from Mozilla.</a>.</p>
+    </body>
+</html>

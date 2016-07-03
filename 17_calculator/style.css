@@ -1,0 +1,24 @@
+/* body {
+    background: black;
+   } */
+table {
+    background: #647C77;
+}
+td {
+    border-style: ridge;    /* options are none, dotted, dashed, solid, double, groove, ridge, inset, outset */
+    border-width: 2px;
+    border-color: #66ffff;  /* change the border color using the hexadecimal color codes for HTML */
+    background: #29403B;    /* change the background color using the hexadecimal color codes for HTML */
+    padding: 2px 0px;
+    width: 55px;
+    text-align: center;
+    font-family: Arial;
+    font-size: 28px;
+    font-weight: bold;    /* options are normal, bold, bolder, lighter */
+    font-style: normal;   /* options are normal or italic */
+    color: #66ffff;       /* change color using the hexadecimal color codes for HTML */
+}
+
+td#display {
+    text-align: right;
+}

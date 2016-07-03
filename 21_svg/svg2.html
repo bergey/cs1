@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+    <head>
+        <title>SVG: Animation and Input</title>
+        <meta charset="utf-8" />
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="svg2.js"></script>
+        <style>
+         svg { border: 1px solid;  width: 40em; height: 120px;}
+         body { max-width: 40em; }
+         h1 { color: green; }
+         .instruction { color: fuchsia; }
+        </style>
+    </head>
+    <body>
+        <h1>Animation</h1>
+        <p>Because SVG is just a special sort of HTML, we can write &
+            modify SVGs using Javascript the same way we have been
+            modifying HTML.  The first JS function in
+            <code>svg2.js</code> moves a circle across the window.</p>
+
+        <svg id="one">
+            <circle r="10" cx="0" cy="60" />
+        </svg>
+
+        <p id="instruction">Make another SVG below, with one circle.
+            Animate the circle so that it moves across the SVG.  When it
+            gets all the way to the right, make it start over at the right
+            hand side.</p>
+
+        <p id="instruction">Make another SVG below, with one circle.
+            Animate the circle so that it moves across the SVG.  When it gets all
+            the way to the right, have it reverse direction and move
+            left.  Do the same when it gets to the left edge.</p>
+
+        <p id="instruction">For your next animation, give the circle a
+            velocity that isn't straight horizontal. Bounce off any of the
+            four sides of the SVG.</p>
+
+        <p id="instruction">Animate the small circle below so that it
+            moves along the large circle.  The next drawing down
+            illustrates the sin and cosine functions, which may help.</p>
+
+        <svg>
+            <circle fill="none" r="50" cx="60" cy="60" stroke="black" />
+            <circle id="orbit" fill="red" r="8" cx="110" cy="60" />
+        </svg>
+
+        <p>The distance AC is 50.  The distance AB is
+            <code>50*sin(θ)</code>.  The distance BC is
+            <code>50*cos(θ)</code>.  In Javascript, we need to write
+            <code>Math.cos</code> or <code>Math.sin</code>.  Remember to
+            express angles in radians, and to add in the center position
+            of the circle.</p>
+
+«        <svg id="three">
+            <circle fill="none" r="50" cx="60" cy="60" stroke="black" />
+            <circle id="orbit2" fill="red" r="3" cx="103.3" cy="85" />
+            <polyline fill="none" stroke="teal"
+                      points="60,60 103.3,60 103.3,85 60,60" />
+            <text x="60" y="60">C</text>
+            <text x="103.3" y="60" id="B">B</text>
+            <text x="103.3" y="85" id="A">A</text>
+        </svg>
+        <p id="instruction">Animate the drawing above so that the red
+            circle moves around the big circle, and the lines & text move
+            with it.  You can use <code>line</code> instead of
+            <code>polyline</code> if that is easier.</p>
+
+        <h1>User Input</h1>
+        <h2>Buttons</h2>
+
+        <p>Our programs can respond to buttons the same way as
+            tic-tac-toe or Battleship, and then change an SVG. </p>
+
+        <p id="instruction">Copy one of your animation above that
+            moves only in the X direction and bounces.  Add two buttons to
+            move the Y position up and down.  What should happen when the
+            Y value is too big or too small to fit in the SVG?</p>
+
+        <p id="instruction">Copy your orbit animation from above.  Add
+            two buttons to increase &amp; decrease the radius of the
+            orbit.  You will probably need a new variable to keep track of
+            this radius.</p>
+
+        <h2>Keyboard Input</h2>
+
+        <p>We can also respond to keyboard input. In the SVG below,
+            Mouse over the SVG below, and press the right arrow key to
+            move the circle.  Read the Javascript to see how it works.</p>
+
+        <svg id="key1">
+            <circle r="10" cx="10" cy="60" />
+        </svg>
+
+        <p id="instruction">Modify the Javascript to respond to all 4
+            arrow keys, moving the circle in the appropriate
+            direction.</p>
+
+        <p id="instruction">Copy your bouncing animation from above,
+            and modify it so that pressing one of the arrow keys at any
+            time makes the circle start moving in that direction.  It
+            should keep moving in that direction until it bounces or
+            another key is pressed.</p>
+
+        <p id="instruction">Make another copy of your bouncing
+            animation.  Change it so that you keep track of the direction
+            (angle) that the circle is moving, instead of the X and Y
+            velocities.  You will need <code>Math.sin</code> and
+            <code>Math.cos</code> again.  Then make two keys change the
+            current travel direction clockwise and counterclockwise.</p>
+
+    </body>
+</html>

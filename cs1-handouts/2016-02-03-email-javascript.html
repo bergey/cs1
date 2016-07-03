@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">body {max-width: 40em;} code{white-space: pre; color: blue}</style>
+</head>
+<body>
+<h2 id="goals">Goals</h2>
+<p>Your email website should:</p>
+<ul>
+<li>show an HTML list, with each line summarizing an email from the provided list</li>
+<li>use the CSS from the BMail project to format each list item</li>
+<li>On the left hand side, clicking on one of the tags list should limit the displayed emails to those that have that tag.</li>
+<li>The <code>input</code> element and the lens button should limit the displayed emails to those that match your search</li>
+<li>Clicking on an email should display the full text of the email.</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<p>Look at prior code to remember the exact way to do things. Especially:</p>
+<ul>
+<li><code>student.js</code> from <code>dictionaries</code> project ( Working with dates, emails)</li>
+<li>Hangman project ( Working with lists, loops, jquery append )</li>
+<li>BMail project (HTML, CSS)</li>
+</ul>
+<h3 id="working-with-jquery">Working With JQuery</h3>
+<ul>
+<li>add <code>script</code> tags to your HTML to load your JS code and the JQuery library</li>
+<li>copy the JQuery <code>script</code> tag from <code>dictionaries.html</code></li>
+<li>Wrap all code that changes the HTML in: <code>$(document).ready( function() {   // do stuff here   });</code></li>
+<li>Find the <code>ol</code> that contains the messages, and give it an id</li>
+<li>use <code>$('#someID').append(&quot;&lt;li&gt; An Email &lt;/li&gt;&quot;)</code> to add emails to the HTML</li>
+<li>use <code>+</code> to combine variables and HTML tags: <code>&quot;&lt;em&gt;&quot; + e.sender.name + &quot;&lt;/em&gt;&quot;</code></li>
+<li>use <code>$(&quot;#anID&quot;).val</code> to get the text of an <code>input</code> field</li>
+<li>use <code>$(&quot;#id&quot;).html(&quot;&quot;)</code> to erase before you <code>append()</code></li>
+</ul>
+<h3 id="working-with-dictionaries">Working With Dictionaries</h3>
+<ul>
+<li>The emails I've given you include the following tags: canvas, SVG, Path, V2, SVGFonts, graph.</li>
+<li>Use <code>filterByTag</code> that you wrote already. Probably your <code>filterByTag</code> is case sensitive.</li>
+<li>Use <code>filterBySubject</code> or <code>filterByBody</code> for the search box</li>
+</ul>
+</body>
+</html>

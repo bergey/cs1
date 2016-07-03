@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Paint Program</title>
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="lib/jquery.svg.js"></script>
+        <script src="paint.js"></script>
+        <style>
+         svg { border: 1px solid; }
+         body { max-width: 40em; }
+         h1 { color: green; }
+         .instruction { color: fuchsia; }
+         #paint { width: 400px; height: 300px; border: 1px solid #484; }
+        </style>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1 id="painting-program">Painting Program</h1>
+        <p>In this project, you will write a simple painting program.</p>
+
+        <h2 id="getting-mouse-position">Getting Mouse Position</h2>
+
+        <p>We need to know where the mouse is, before we can paint there. We
+            can ask for a particular function to be called whenever the mouse
+            moves, the same way we did for buttons and keys on the keyboard. The
+            browser will call our function with a dictionary that describes where
+            the mouse is. There's a catch, though. <code>pageX</code> and
+            <code>pageY</code> give us coördinates relative to the upper left
+            corner of the web page. To draw in an SVG, we need coördinates
+            relative to the corner of the SVG! So we also need to find where the
+            SVG is on the page.</p>
+
+        <p>When you move your mouse on the SVG below, the text updates to show
+            the two positions. Read the Javascript code to see how it works.</p>
+
+        <svg id="ex1">
+        </svg>
+        <ul id="ex2">
+        </ul>
+
+        <h2 id="using-mouse-position">Using Mouse Position</h2>
+        <p>Make a new SVG with a small circle in it. Write JS code that reads
+            the mouse position, and moves the circle to follow the mouse.</p>
+
+        <svg id="followCircle">
+            <circle r="10" cx="60" cy="60"></circle>
+        </svg>
+
+        <h2>Append to SVG</h2>
+        <p>To append a new circle or other shape to an SVG, we need to
+        write slightly different code than appending an
+        <code>li</code> to a <code>ul</code>.  Use the function called
+        <code>svg</code> to make the <code>circle</code>, and
+        <code>attr</code> to set its attributes.  Then wrap the new
+        element in <code>append</code> as usual. Read the code that
+        draws the shapes below, for more details.</p>
+
+        <svg id="ex3"></svg>
+
+        <h2 id="painting">Painting</h2>
+        <p>Copy your code from above. Instead of moving the circle,
+        add a new circle to the image each time the mouse moves.</p>
+
+        <svg id="paint"></svg>
+
+        <h2 id="color-brush-opacity">Color, Brush, Opacity</h2>
+
+        <p>Add at least two of the following features, to make your paint program more useful:</p>
+        <ul>
+            <li>a text field to set the brush size (radius of the circle)</li>
+            <li>a text field to set the <code>fill-opacity</code> property</li>
+            <li>a text field to set the color, using <code>#13ae45</code> syntax</li>
+            <li>a pencil tool that draws lines between mouse positions, instead of circles</li>
+        </ul>
+
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<p>Now that you've spent some time reading &amp; writing HTML, here are some terms used to refer to particular parts of HTML. These should make it easier to understand other writing about HTML.</p>
+<dl>
+<dt>Start Tag</dt>
+<dd>An element name enclosed in angle brackets, like <code>&lt;ol&gt;</code>, with optional attributes.
+</dd>
+<dt>End Tag</dt>
+<dd>An element name enclosed in angle brackets and slash, like <code>&lt;/ol&gt;</code>. Most elements have a start tag and an end tag, but a few have only a start tag. May also be called a <em>closing tag</em>.
+</dd>
+<dt>Element Name</dt>
+<dd>One of the elements defined by HTML, like <code>p</code>, <code>h1</code>, or <code>li</code>.
+</dd>
+<dt>Attribute</dt>
+<dd>Additional information included as part of a start tag. For example, the <code>src</code> part of <code>&lt;img src=&quot;images/something.jpg&quot;&gt;</code>. Every <em>attribute</em> has a <em>key</em> before the equals sign, and a <em>value</em> after the equals sign. The <em>value</em> must be inside quotation marks.
+</dd>
+<dt>Element</dt>
+<dd>An HTML <em>element</em> is the <em>start tag</em>, the <em>end tag</em>, and all the HTML in between. <em>Element</em> can also refer to the rendered equivalent in the browser.
+</dd>
+<dt>Parent</dt>
+<dd>The <em>parent</em> or <em>parent element</em> of a particular element is the element that contains it. For example, in <code>&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;/ul&gt;</code>, <code>ul</code> is the parent of <code>li</code>.
+</dd>
+<dt>Child</dt>
+<dd><p>A <em>child</em> or <em>child element</em> of a given element is any element that has it as a a parent. The <code>ul</code> in this example has two children, both <code>li</code>.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;one&lt;/li&gt;
+  &lt;li&gt;two&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</dd>
+<dt>Empty Element</dt>
+<dd>An <em>empty element</em> is one that is never allowed to have <em>children</em>. These should always be written without a <em>end tag</em>. The most common example is <code>img</code>. You can see <a href="https://developer.mozilla.org/en-US/docs/Glossary/Empty_element">The full list on MDN</a>.
+</dd>
+</dl>
